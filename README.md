@@ -47,6 +47,61 @@ Faz 5: Test ve Yayına Alma
 • [ ] Uçtan uca telefon testleri.
 • [ ] Token tüketimi ve maliyet analizi dashboard'u.
 • [ ] Dockerize ederek cloud (AWS/GCP) kurulumuna hazır hale getirme.
+
+
+# ==========================================================
+# 🦷 DISCI AI: MULTI-AGENT RANDEVU & CRM SISTEMI
+# ==========================================================
+# Bu dosya projenin tum asamalarini ve kurulumunu icerir.
+
+# DISCI AI PROJE OZETI
+
+## 🏗️ TEKNIK MIMARI PANOSU
+| KATMAN | TEKNOLOJI | ROLU |
+| :--- | :--- | :--- |
+| **🤖 Orkestrator** | Python / LangGraph | Ajan yonetimi |
+| **🎙️ Ses Motoru** | Vapi.ai / ElevenLabs | Sesli yanıt hizi |
+| **🧠 LLM Hibrit** | Gemini + Claude + GPT-4o | Zeka Katmani |
+| **🖥️ Frontend** | React.js + Tailwind | CRM Dashboard |
+| **🗄️ Database** | PostgreSQL | Veri Saklama |
+
+## 🚀 FAZ 6: YAYINA HAZIRLIK VE KURULUM
+
+### 1. ORTAM DEGISKENLERI (.env)
+Kök dizinde bir .env dosyası oluşturun:
+GEMINI_API_KEY=AIza...
+ANTHROPIC_API_KEY=sk-ant-...
+OPENAI_API_KEY=sk-...
+VAPI_API_KEY=vapi-key-...
+DATABASE_URL=postgresql://user:pass@localhost:5432/disci_ai
+
+### 2. BACKEND KURULUMU
+pip install fastapi uvicorn sqlalchemy psycopg2-binary vapi langchain-openai
+python database.py
+uvicorn main:app --reload --port 8000
+
+### 3. FRONTEND KURULUMU
+npx create-react-app crm-panel
+cd crm-panel
+npm install lucide-react tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npm start
+
+### 4. TELEFON BAGLANTISI
+- Vapi.ai paneline gidin.
+- Server URL: https://sunucunuz.com/vapi-webhook
+- Asistani bir telefon numarasina atayin.
+'
+
+# --- PROJE DOSYA LISTESI ---
+# 1. database.py     -> Veritabani Modelleme
+# 2. orchestrator.py -> AI Karar Mekanizmasi
+# 3. main.py         -> FastAPI & Webhook
+# 4. App.jsx         -> React Dashboard
+
+
+
+
 🛠️ Kurulum Notları
 Geliştirme aşamasında buraya bağımlılıklar ve ortam değişkenleri eklenecektir.
 👨‍💻 Katkıda Bulunma
